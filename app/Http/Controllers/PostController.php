@@ -24,6 +24,44 @@ class PostController extends Controller
         return view('show',[
             'post'=>$post
         ]);
+        
+    }
+    public function destroy(){
+        $request = request();
+        $postId = $request->post;
+
+        // $post = Post::find($postId);
+
+        // $post->delete();
+        Post::destroy($postId);
+
+        return redirect()->route('posts.index');
+
+    }
+    public function edit(){
+        $request = request();
+        $postId = $request->post;
+        $post=Post::find($postId);
+        return view('edit',[
+            'post'=>$post
+        ]);
+
+        
+    }
+    public function update(){
+        $request=request();
+        //dd($request->id);
+
+
+
+        $post = Post::find($request->id);
+
+        $post->title = $request->title;
+        $post->description = $request->description;
+
+        $post->save();
+        return redirect()->route('posts.index');
+
     }
     public function create(){
        

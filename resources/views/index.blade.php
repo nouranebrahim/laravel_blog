@@ -33,8 +33,9 @@
       <td>{{$post->title}}</td>
       <td>{{$post->description}}</td>
       <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-primary">view</a></td>
-      <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-secondary">update</a></td>
-      <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-warning">delete</a></td>
+      <td><a href="{{route('posts.edit',['post'=> $post->id])}}" class="btn btn-secondary">update</a></td>
+      
+      <td><a href="{{route('posts.destroy',['post'=> $post->id])}}" class="btn btn-warning">delete</a></td>
    @endforeach
     </tr>
    
