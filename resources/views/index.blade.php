@@ -12,7 +12,7 @@
     <h1> my posts</h1>
     <table class="table">
   <thead>
-  <a href="#" class="btn btn-primary">create post</a>
+  <a href="{{route('posts.create')}}" class="btn btn-primary">create post</a>
     <tr>
       <th scope="col">id</th>
       <th scope="col">created_at</th>
@@ -33,8 +33,8 @@
       <td>{{$post->title}}</td>
       <td>{{$post->description}}</td>
       <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-primary">view</a></td>
-      <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-primary">update</a></td>
-      <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-primary">delete</a></td>
+      <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-secondary">update</a></td>
+      <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-warning">delete</a></td>
    @endforeach
     </tr>
    
