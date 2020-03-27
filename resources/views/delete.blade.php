@@ -8,33 +8,34 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-<form method="DELETE" action="{{route('posts.store')}}">
-  @csrf
-  <div class="form-group">
-    <label for="exampleFormControlInput1">title</label>
-    <input type="text" class="form-control" name="title">
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">description</label>
-    <textarea class="form-control" name="description" rows="3"></textarea>
-  </div>
+</div>
 
 
+<p>are you sure you want to delete!!</p> 
+ <a href="{{route('posts.destroy',['post'=> $post])}}" class="btn btn-warning">yes</a>
+ <a href="{{route('posts.index')}}" class="btn btn-warning">no</a>
 
-
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Users</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  
-  </form>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

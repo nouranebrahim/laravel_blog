@@ -8,6 +8,12 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{route('posts.index')}}">
+    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    ALL POSTS
+  </a>
+</nav>
 <form method="POST" action="{{route('posts.store')}}">
   @csrf
   <div class="form-group">

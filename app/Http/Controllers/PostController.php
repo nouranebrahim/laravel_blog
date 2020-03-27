@@ -38,6 +38,13 @@ class PostController extends Controller
         return redirect()->route('posts.index');
 
     }
+    // public function delete(){
+    //     $request = request();
+    //     $postId = $request->post;
+    //     //dd($postId);
+    //     return view('delete',['post'=>$postId]);
+
+    // }
     public function edit(){
         $request = request();
         $postId = $request->post;

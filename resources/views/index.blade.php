@@ -9,6 +9,12 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{route('posts.index')}}">
+    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    ALL POSTS
+  </a>
+</nav>
     <h1> my posts</h1>
     <table class="table">
   <thead>
@@ -28,16 +34,38 @@
       
       
       <td>{{$post->id}}</td>
-      <td>{{$post->crated_at}}</td>
+      <td>{{$post->created_at}}</td>
       <td>{{$post->updated_at}}</td>
       <td>{{$post->title}}</td>
       <td>{{$post->description}}</td>
       <td><a href="{{route('posts.show',['post'=> $post->id])}}" class="btn btn-primary">view</a></td>
       <td><a href="{{route('posts.edit',['post'=> $post->id])}}" class="btn btn-secondary">update</a></td>
       
-      <td><a href="{{route('posts.destroy',['post'=> $post->id])}}" class="btn btn-warning">delete</a></td>
+      <td><a data-toggle="modal" data-target="#myModal" class="btn btn-warning">delete</a></td>
    @endforeach
     </tr>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        <a href="{{route('posts.destroy',['post'=> $post])}}" class="btn btn-warning">yes</a>
+        <a href="{{route('posts.index')}}" class="btn btn-warning">no</a>
+      </div>
+    </div>
+
+  </div>
+</div>
    
   </tbody>
 </table>

@@ -9,6 +9,12 @@
 
 </head>
 <body>
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="{{route('posts.index')}}">
+    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    ALL POSTS
+  </a>
+</nav>
 <div class="card" style="width: 18rem;">
         <div class="card-body">
         <h5 class="card-title">{{$post->title}}</h5>
