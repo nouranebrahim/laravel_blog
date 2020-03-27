@@ -31,13 +31,11 @@
 
   <div class="form-group">
     <label for="exampleFormControlSelect1">Users</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
+    <select name="user_id" class="form-control ">
+          
+          <option value="{{ $post->user ? $post->user->id : 'not exist'}}">{{ $post->user ? $post->user->name : 'not exist'}}</option>
+    
+        </select>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   

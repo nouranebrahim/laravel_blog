@@ -21,6 +21,13 @@
           <p class="card-text">{{$post->description}}</p>
         </div>
       </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">"user_name:"{{ $post->user ? $post->user->name : 'not exist'}}</h5>
+          <p class="card-text">"user_email:"{{ $post->user ? $post->user->email : 'not exist'}}</p>
+        </div>
+      </div>
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
