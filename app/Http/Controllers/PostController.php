@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Http\Requests\StoreBlogPost;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -59,8 +61,8 @@ class PostController extends Controller
 
         
     }
-    public function update(){
-        $request=request();
+    public function update(StoreBlogPost $request){
+       // $request=request();
         //dd($request->id);
 
 
@@ -79,13 +81,20 @@ class PostController extends Controller
        
         return view('create',['users'=>$users]);
     }
-    public function store(){
+    public function store(StoreBlogPost $request){
         $request=request();
-        //dd($request->title);
+        $title=$request->title;
+        
+
+        $slug = Str::slug($title, '-');
+        // dd($slug);
+
+       
         Post::create([
             "title"=> $request->title,
             "description"=> $request->description,
-            "user_id"=>$request->user_id
+            "user_id"=>$request->user_id,
+            "slug"=>$slug,
         ]);
        
         return redirect()->route('posts.index');

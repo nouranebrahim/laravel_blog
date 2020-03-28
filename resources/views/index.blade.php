@@ -26,6 +26,7 @@
       <th scope="col">title</th>
       <th scope="col">description</th>
       <th scope="col">user</th>
+      <th scope="col">slug</th>
       <th colspan="3" scope="col-3">actions</th>
     </tr>
   </thead>
@@ -39,7 +40,9 @@
       <td>{{$post->updated_at}}</td>
       <td>{{$post->title}}</td>
       <td>{{$post->description}}</td>
+
       <td>{{ $post->user ? $post->user->name : 'not exist'}}</td>
+      <td>{{$post->slug}}</td>
       <td><a href="{{route('posts.show',['post'=> $post->id,'user'=> $post->user ? $post->user->id : 'not exist'])}}" class="btn btn-primary">view</a></td>
       <td><a href="{{route('posts.edit',['post'=> $post->id])}}" class="btn btn-secondary">update</a></td>
       

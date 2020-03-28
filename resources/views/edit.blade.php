@@ -14,6 +14,15 @@
     ALL POSTS
   </a>
 </nav>
+@if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
 <form method="GET" action="{{route('posts.update',['post'=>$post->id])}}">
   @csrf
   <div class="form-group">
