@@ -9,6 +9,18 @@ use App\User;
 use Socialite;
 use Illuminate\Support\Facades\Auth;
 
+
+
+  
+
+
+
+
+
+
+
+
+
 class LoginController extends Controller
 {
     /*
@@ -55,9 +67,9 @@ class LoginController extends Controller
         $user = Socialite::driver('github')->user();
           //dd($user);
         // $user->token;
-        $check=User::where('name',$user->nickname)->where('email',$user->email)->first();
+        $newUser=User::where('name',$user->nickname)->where('email',$user->email)->first();
         // dd($check);
-        if(!$check){
+        if(!$newUser){
             User::create([
                 'id'=>$user->id,
                 'name'=>$user->nickname,
@@ -65,7 +77,53 @@ class LoginController extends Controller
                 'password'=>$user->token
             ]);
         }
-        // Auth::login($user,true);
+         Auth::login($newUser,true);
         return redirect()->route('posts.index');
     }
+    public function redirectToGoogle()
+
+    {
+
+        return Socialite::driver('google')->redirect();
+
+    }
+
+      
+
+    /**
+
+     * Create a new controller instance.
+
+     *
+
+     * @return void
+
+     */
+
+    public function handleGoogleCallback()
+
+    {
+
+            $user = Socialite::driver('google')->user();
+            dd($user);
+            $newUser=User::where('name',$user->nickname)->where('email',$user->email)->first();
+            // dd($check);
+            if(!$newUser){
+                User::create([
+                    'id'=>$user->id,
+                    'name'=>$user->nickname,
+                    'email'=>$user->email,
+                    'password'=>$user->token
+                ]);
+            }
+             Auth::login($newUser,true);
+            return redirect()->route('posts.index');
+
+     
+
+            
+
+    }
+
+
 }
